@@ -1,7 +1,7 @@
 <template>
   <div id="resume">
     <div class="head">
-      <div class="title">{{ msg }}</div>
+      <div class="title">{{ Title }}</div>
     </div>
 
     <div class="contain">
@@ -54,13 +54,13 @@
 
 </template>
 
-<script>export default {
+<script>
+export default {
   name: 'Resume',
   data () {
     return {
-      msg: '#####',
+      Title: '####',
       name: '####',
-      webSite: 'http://www.ayqy.net/temp/timeline/index.html',
       aboutMe: {
         title: 'About Me',
         info: [
@@ -92,6 +92,10 @@
           {
             title: 'FoodApp',
             value: 'Welcome to visit my food App, Would you want to something to eat?'
+          },
+          {
+            title: 'GameApp',
+            value: 'Welcome to visit my mini Game App, Would you want to find some games to play?'
           }
         ]
       },
@@ -130,6 +134,9 @@
         ]
       }
     }
+  },
+  created: function () {
+    document.title = this.Title
   },
   methods: {
     clickA: (index) => {
@@ -283,7 +290,7 @@
   .info{
     margin-left:2rem;
     display: inline-block;
-    width:30rem;
+    width:25rem;
   }
   .info .aboutMeInfo{
     margin-top: 0.5rem;
