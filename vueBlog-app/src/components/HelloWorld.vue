@@ -1,23 +1,18 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div id="HelloWorld">
+    <div class="head">
+      <ul class="menu">
+        <li v-for="(value, key) in menu" :key="key">
+          <router-link :to="value.route" class="menuA" @click="changeMenu(value.route)">{{ value.name }}</router-link>
+        </li>
+      </ul>
+      <div class="title">{{ msg }}</div>
+    </div>
+    <div class="contain">
+      <router-view ></router-view>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -25,29 +20,102 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: '九酒的笔记本',
+      menu: [
+        {
+          route: '/home',
+          name: '首页'
+        },
+        {
+          route: '/archives',
+          name: '归档'
+        },
+        {
+          route: '/classify',
+          name: '分类'
+        },
+        {
+          route: '/about',
+          name: '关于'
+        },
+        {
+          route: '/link',
+          name: '联系'
+        }
+      ]
+    }
+  },
+  methods: {
+    changeMenu: (route) => {
+      this.$router.push(route)
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style scoped lang="less">
+  @titleHeight:120px;
+@title-font-color: #999;
+@shadow-color:#ccc;
+#background-color(){
+  background-color: transparent;
 }
+  #HelloWorld{
+  background-color: #fcfcfc;
+  }
+.head{
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  height:@titleHeight;
+  background-color:#f2f2f2;
+  box-shadow: @shadow-color 0 0 10px 0;
+  z-index: 1;
 
-ul {
-  list-style-type: none;
-  padding: 0;
 }
-
-li {
+  .title{
+    margin:0 auto;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 32px;
+    font-family:"新宋体";
+    color:@title-font-color;
+    position: relative;
+    top: 30px;
+    #background-color
+  }
+.menu{
   display: inline-block;
-  margin: 0 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  #background-color
 }
-
-a {
-  color: #42b983;
+ul li {
+  float: left;
+  #background-color
 }
+  .menuA{
+    text-decoration: none;
+    color: @title-font-color;
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 20px;
+    #background-color
+  }
+  .contain{
+    display: block;
+    position: absolute;
+    top: @titleHeight;
+    left:10%;
+    width:80%;
+    height:calc(100% - @titleHeight);
+    border-left:1px solid #f2f2f2;
+    border-right:1px solid #f2f2f2;
+    background-color: #ffffff;
+    box-shadow: 0 5px 5px @shadow-color ;
+  }
 </style>
