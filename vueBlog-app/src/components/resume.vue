@@ -5,12 +5,12 @@
     </div>
 
     <div class="contain">
-      <div class="touxiang hidden">
+      <div class="touxiang">
         <div class="circle1"></div>
         <div class="circle2"><img src="../assets/images/头像.jpg"/></div>
         <div id="name" class="name"><span v-text="name"></span></div>
       </div>
-      <div class="info hidden" id="aboutMe">
+      <div class="info" id="aboutMe">
         <div class="greenFont"><b>{{aboutMe.title}}</b></div>
         <hr/>
         <div v-for="(value, key) in aboutMe.info" class="aboutMeInfo" :key="key">
@@ -18,7 +18,7 @@
           <span v-text="value.value" class="whiteFont"></span>
         </div>
       </div>
-      <div class="info hidden" id="ProjectEx">
+      <div class="info" id="ProjectEx">
         <div class="greenFont"><b>{{ProjectEx.title}}</b></div>
         <hr/>
         <div v-for="(value, key) in ProjectEx.info" class="aboutMeInfo" :key="key">
@@ -26,7 +26,7 @@
           <div v-text="value.value" class="whiteFont"></div>
         </div>
       </div>
-      <div class="info hidden" id="WorkEx">
+      <div class="info" id="WorkEx">
         <div class="greenFont"><b>{{WorkEx.title}}</b></div>
         <hr/>
         <div class="list aboutMeInfo ">
@@ -42,7 +42,7 @@
         </div>
 
       </div>
-      <div class="info " id="selfEvaluation">
+      <div class="info" id="selfEvaluation">
         <div class="greenFont"><b>{{selfEvaluation.title}}</b></div>
         <hr/>
         <div v-for="(value, key) in selfEvaluation.info" class="aboutMeInfo selfEvaluationContent" :key="key" >
@@ -66,23 +66,23 @@ export default {
         info: [
           {
             name: 'Tel：',
-            value: '158****1791'
+            value: 'xxxxxxxxxxxx'
           },
           {
             name: 'Email：',
-            value: '906784584@qq.com'
+            value: 'xxxxxxxxxxxx'
           },
           {
             name: 'Graduate School：',
-            value: 'Hefei Normal University'
+            value: 'xxxxxxxxxxxxxxxxxxxxxxx'
           },
           {
             name: 'Graduate Time：',
-            value: '2016-07-01'
+            value: 'xxxxxxxxxxxxxxxxxxx'
           },
           {
             name: 'Birthday：',
-            value: '1994-01-06'
+            value: 'xxxxxxxxxxxxxxxxxxxxxx'
           }
         ]
       },
@@ -156,8 +156,8 @@ export default {
   @circleColor1:#171717;
   @circleColor2:#404040;
   @circleColor3:#444243;
-  @touxiangWidth:15rem;
-  @circle2width:13rem;
+  @touxiangWidth:10rem;
+  @circle2width:9rem;
   .font-family{
     font-family: 'Arial','楷体' !important;
   }
@@ -239,7 +239,7 @@ export default {
     display: inline-block;
     height:@touxiangWidth;
     width:@touxiangWidth;
-    position: relative;
+    position: absolute;
     top:2rem;
   }
   .circle1{
@@ -248,7 +248,7 @@ export default {
     height:@touxiangWidth;
     .border-radius(50%);
     box-sizing: border-box;
-    border: 1rem solid @circleColor3;
+    border: 0.7rem solid @circleColor3;
   }
   .circle2{
     position: absolute;
@@ -283,14 +283,15 @@ export default {
     color: @font-color;
   }
   .name span{
-    padding:0 1rem;
-    font-size: 1.5rem;
+    padding:0 0.5rem;
+    font-size: 1rem;
     background-color: @backgroundColor;
   }
   .info{
     margin-left:2rem;
     display: inline-block;
-    width:25rem;
+    width:18rem;
+    margin-top:3rem;
   }
   .info .aboutMeInfo{
     margin-top: 0.5rem;

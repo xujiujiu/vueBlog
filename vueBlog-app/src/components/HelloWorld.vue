@@ -55,7 +55,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  @titleHeight:120px;
+  @titleHeight:12rem;
 @title-font-color: #999;
 @shadow-color:#ccc;
 #background-color(){
@@ -72,7 +72,7 @@ export default {
   bottom:0;
   height:@titleHeight;
   background-color:#f2f2f2;
-  box-shadow: @shadow-color 0 0 10px 0;
+  box-shadow: @shadow-color 0 0 1rem 0;
   z-index: 1;
 
 }
@@ -80,18 +80,18 @@ export default {
     margin:0 auto;
     text-align: center;
     vertical-align: middle;
-    font-size: 32px;
+    font-size: 3.2rem;
     font-family:"新宋体";
     color:@title-font-color;
     position: relative;
-    top: 30px;
+    top: 3rem;
     #background-color
   }
 .menu{
   display: inline-block;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   #background-color
 }
 ul li {
@@ -101,9 +101,9 @@ ul li {
   .menuA{
     text-decoration: none;
     color: @title-font-color;
-    font-size: 14px;
+    font-size: 1.4rem;
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 2rem;
     #background-color
   }
   .contain{
